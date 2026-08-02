@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const writeups = (await getCollection("writeups")).filter((item) => !item.data.draft).sort((a,b) => b.data.date.valueOf() - a.data.date.valueOf());
+const platforms = ["TryHackMe", "Hack The Box", "Outro"] as const;
+const systems = ["Windows", "Linux"] as const;
+---
+<BaseLayout title="Write-ups" description="Resoluções técnicas de CTF por Mateus Reis Bastos.">
+  <div class="listing-page shell">
+    <header class="page-heading"><h1>CTFs documentados</h1><p>Reconhecimento, exploração e lições aprendidas em ambientes controlados.</p></header>
+    {writeups.length === 0 ? (
+      <section class="empty-state" aria-labelledby="writeups-vazio">
+        <h2 id="writeups-vazio">Nenhum registro no momento.</h2>
+        <p>Os relatórios de exploração e documentação de CTFs serão indexados aqui em breve.</p>
+        <a href="/">Retornar ao índice principal</a>
+      </section>
+    ) : (
+      <>
+        <div class="filters" aria-label="Filtros de write-ups">
+          <fieldset><legend>Plataforma</legend><button class="active" aria-pressed="true" data-filter-type="platform" data-filter="all">Todas</button>{platforms.map((platform) => <button aria-pressed="false" data-filter-type="platform" data-filter={platform}>{platform}</button>)}</fieldset>
+          <fieldset><legend>Sistema</legend><button class="active" aria-pressed="true" data-filter-type="os" data-filter="all">Todos</button>{systems.map((system) => <button aria-pressed="false" data-filter-type="os" data-filter={system}>{system}</button>)}</fieldset>
+        </div>
+        <div class="content-list">
+          {writeups.map((item) => <a class="content-row" href={`/writeups/${item.id}/`} data-platform={item.data.platform} data-os={item.data.os}>
+            <time datetime={item.data.date.toISOString()}>{item.data.date.toLocaleDateString("pt-BR", { month: "short", year: "numeric" })}</time>
+            <div><h2>{item.data.title}</h2><p>{item.data.summary}</p><span>{item.data.platform} · {item.data.difficulty} · {item.data.os}</span></div><b aria-hidden="true">→</b>
+          </a>)}
+        </div>
+        <p class="no-results" role="status" aria-live="polite" hidden>Nenhum write-up corresponde aos filtros selecionados.</p>
+      </>
+    )}
+  </div>
+  <script>
+    import { initializeWriteupFilters } from "../../scripts/writeup-filters.mjs";
+
+    document.addEventListener("astro:page-load", () => {
+      initializeWriteupFilters();
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,105 @@
+---
+import { site } from "../data/site";
+
+interface Props { lang: "pt" | "en"; }
+const { lang } = Astro.props;
+const pt = lang === "pt";
+const ports = Array.from({ length: 24 }, (_, index) => index + 1);
+const patched = new Map([
+  [3, { color: "blue", protocol: "HTTPS", port: "443" }],
+  [9, { color: "orange", protocol: "SSH", port: "22" }],
+  [15, { color: "green", protocol: "DNS", port: "53" }],
+  [21, { color: "brown", protocol: "SMTP", port: "25" }],
+]);
+const labels = pt ? {
+  port: "PORTA",
+  resume: "Currículo", resumeCopy: "Formação, certificações e experiências.",
+  writeups: "Write-ups", writeupsCopy: "Relatórios de CTFs.",
+  articles: "Artigos", articlesCopy: "Artigos sobre redes e segurança da informação.",
+  contact: "Contato", contactCopy: "Canais diretos e perfis profissionais.",
+  resumePath: "/curriculo", writeupsPath: "/writeups", articlesPath: "/artigos", contactPath: "#contato",
+  contactTitle: "Canais diretos", profileTitle: "Plataformas de CTF e Labs", pending: "Perfil em breve",
+  opensNewTab: "de Mateus Reis Bastos — abre em nova aba",
+} : {
+  port: "PORT",
+  resume: "Resume", resumeCopy: "Education, certifications and experience.",
+  writeups: "Write-ups", writeupsCopy: "CTF reports.",
+  articles: "Articles", articlesCopy: "Articles about networks and information security.",
+  contact: "Contact", contactCopy: "Direct channels and professional profiles.",
+  resumePath: "/en/resume", writeupsPath: "/en/writeups", articlesPath: "/en/articles", contactPath: "#contact",
+  contactTitle: "Direct channels", profileTitle: "CTF & Lab Platforms", pending: "Profile coming soon",
+  opensNewTab: "profile of Mateus Reis Bastos — opens in a new tab",
+};
+const profileUrl = (url: string) => /^https?:\/\//.test(url);
+const profileHandles: Record<string, string> = { TryHackMe: "mrmaff", "Hack The Box": "mateusrb6" };
+const cards = [
+  { color: "blue", protocol: "HTTPS", port: "443", title: labels.resume, copy: labels.resumeCopy, href: labels.resumePath },
+  { color: "orange", protocol: "SSH", port: "22", title: labels.writeups, copy: labels.writeupsCopy, href: labels.writeupsPath },
+  { color: "green", protocol: "DNS", port: "53", title: labels.articles, copy: labels.articlesCopy, href: labels.articlesPath },
+  { color: "brown", protocol: "SMTP", port: "25", title: labels.contact, copy: labels.contactCopy, href: labels.contactPath },
+];
+---
+
+<div class="hub-page">
+  <div class="hub-shell">
+    <div class="hub-topbar">
+      <nav class="hub-language" aria-label={pt ? "Selecionar idioma" : "Select language"}>
+        <a href="/" lang="pt-BR" hreflang="pt-BR" aria-current={pt ? "page" : undefined}>PT</a>
+        <a href="/en/" lang="en" hreflang="en" aria-current={pt ? undefined : "page"}>EN</a>
+      </nav>
+    </div>
+
+    <section class="hub-hero" aria-labelledby="hub-title">
+      <div>
+        <h1 id="hub-title">Mateus Reis<br />Bastos</h1>
+      </div>
+    </section>
+
+    <section class="hub-panel" aria-label={pt ? "Painel de conexões" : "Connection panel"}>
+      <div class="hub-ports" aria-hidden="true">
+        {ports.map((number) => {
+          const connection = patched.get(number);
+          return <span class:list={["hub-port", connection?.color]}>
+            <span class="hub-jack"><i></i></span>
+            <b>{number.toString().padStart(2, "0")}</b>
+          </span>;
+        })}
+      </div>
+    </section>
+
+    <div class="hub-cables" aria-hidden="true">
+      <svg class="hub-cables-desktop" viewBox="0 0 1000 78" preserveAspectRatio="none">
+        <path class="blue" d="M104 0C104 26 117 41 125 78" />
+        <path class="orange" d="M354 0C354 27 371 43 375 78" />
+        <path class="green" d="M604 0C604 27 621 43 625 78" />
+        <path class="brown" d="M854 0C854 27 875 43 875 78" />
+      </svg>
+      <svg class="hub-cables-mobile" viewBox="0 0 1000 64" preserveAspectRatio="none">
+        <path class="blue" d="M208 0C208 25 10 35 10 64" />
+        <path class="orange" d="M708 0C708 27 30 38 30 64" />
+        <path class="green" d="M208 0C208 31 50 43 50 64" />
+        <path class="brown" d="M708 0C708 34 70 46 70 64" />
+      </svg>
+    </div>
+
+    <nav class="hub-routes" aria-label={pt ? "Rotas principais" : "Primary routes"}>
+      <span class="hub-mobile-runs" aria-hidden="true">
+        {cards.map((card) => <i class={`hub-mobile-run ${card.color}`}></i>)}
+      </span>
+      {cards.map((card) => <a class:list={["hub-route", card.color]} href={card.href}>
+        <span class="hub-route-port">{labels.port} {card.port} · {card.protocol}</span>
+        <strong>{card.title}</strong>
+        <span class="hub-route-copy">{card.copy}</span>
+      </a>)}
+    </nav>
+
+    <section class="hub-contact" id={pt ? "contato" : "contact"} aria-labelledby="hub-contact-title">
+      <div><h2 id="hub-contact-title">{labels.contactTitle}</h2><a href={site.links.github} target="_blank" rel="noreferrer" aria-label={`GitHub ${labels.opensNewTab}`}>GitHub <span>@mateusrb6</span></a><a href={site.links.linkedin} target="_blank" rel="noreferrer" aria-label={`LinkedIn ${labels.opensNewTab}`}>LinkedIn <span>mateusrbastos</span></a><a href={`mailto:${site.email}`}>E-mail <span>{site.email}</span></a></div>
+      <div><h2>{labels.profileTitle}</h2>{["TryHackMe", "Hack The Box"].map((name) => {
+        const url = name === "TryHackMe" ? site.links.tryhackme : site.links.htb;
+        return profileUrl(url) ? <a href={url} target="_blank" rel="noreferrer" aria-label={`${name} ${labels.opensNewTab}`}>{name} <span>{profileHandles[name]}</span></a> : <p class="hub-pending">{name} <span>{labels.pending}</span></p>;
+      })}</div>
+    </section>
+
+  </div>
+</div>

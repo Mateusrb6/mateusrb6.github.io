@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { translateMetadata, writeupEnglish } from "../../../data/i18n";
+const writeups = (await getCollection("writeups")).filter((item) => !item.data.draft).sort((a,b) => b.data.date.valueOf() - a.data.date.valueOf());
+const platforms = ["TryHackMe", "Hack The Box", "Outro"] as const;
+const systems = ["Windows", "Linux"] as const;
+---
+<BaseLayout lang="en" title="Write-ups" description="CTF technical walkthroughs by Mateus Reis Bastos.">
+  <div class="listing-page shell">
+    <header class="page-heading"><h1>Documented CTFs</h1><p>Reconnaissance, exploitation, and lessons learned in controlled environments.</p></header>
+    {writeups.length === 0 ? <section class="empty-state" aria-labelledby="writeups-empty"><h2 id="writeups-empty">No records yet.</h2><p>CTF walkthroughs and lab reports will be indexed here soon.</p><a href="/en/">Return to the main index</a></section> : <>
+      <div class="filters" aria-label="Write-up filters">
+        <fieldset><legend>Platform</legend><button class="active" aria-pressed="true" data-filter-type="platform" data-filter="all">All</button>{platforms.map((platform) => <button aria-pressed="false" data-filter-type="platform" data-filter={platform}>{translateMetadata(platform)}</button>)}</fieldset>
+        <fieldset><legend>System</legend><button class="active" aria-pressed="true" data-filter-type="os" data-filter="all">All</button>{systems.map((system) => <button aria-pressed="false" data-filter-type="os" data-filter={system}>{system}</button>)}</fieldset>
+      </div>
+      <div class="content-list">
+      {writeups.map((item) => {
+        const copy = writeupEnglish[item.id as keyof typeof writeupEnglish];
+        return <a class="content-row" href={`/en/writeups/${item.id}/`} data-platform={item.data.platform} data-os={item.data.os}>
+          <time datetime={item.data.date.toISOString()}>{item.data.date.toLocaleDateString("en-US", { month: "short", year: "numeric" })}</time>
+          <div><h2>{copy?.title || item.data.title}</h2><p>{copy?.summary || item.data.summary}</p><span>{translateMetadata(item.data.platform)} · {translateMetadata(item.data.difficulty)} · {translateMetadata(item.data.os)}</span></div><b aria-hidden="true">→</b>
+        </a>;
+      })}
+      </div>
+      <p class="no-results" role="status" aria-live="polite" hidden>No write-ups match the selected filters.</p>
+    </>}
+  </div>
+  <script>
+    import { initializeWriteupFilters } from "../../../scripts/writeup-filters.mjs";
+
+    document.addEventListener("astro:page-load", () => {
+      initializeWriteupFilters();
+    });
+  </script>
+</BaseLayout>

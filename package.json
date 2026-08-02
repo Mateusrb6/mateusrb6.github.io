@@ -1,0 +1,25 @@
+{
+  "name": "mateusrb6.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "postbuild": "node scripts/optimize-html.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/saira-condensed": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.3.0",
+    "astro": "^7.1.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "sharp": "^0.35.3",
+    "typescript": "^6.0.3"
+  }
+}

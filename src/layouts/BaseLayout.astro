@@ -1,0 +1,86 @@
+---
+import "../styles/global.css";
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-600.css";
+import "@fontsource/saira-condensed/latin-600.css";
+import "@fontsource/saira-condensed/latin-700.css";
+import "@fontsource/source-sans-3/latin-400.css";
+import "@fontsource/source-sans-3/latin-600.css";
+import { ClientRouter } from "astro:transitions";
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  type?: "website" | "article";
+  lang?: "pt-BR" | "en";
+}
+
+const {
+  title = site.name,
+  description = site.description,
+  type = "website",
+  lang = Astro.url.pathname.startsWith("/en") ? "en" : "pt-BR",
+} = Astro.props;
+const isEnglish = lang === "en";
+const pageTitle = title === site.name ? title : `${title} · ${site.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/og.svg", Astro.site);
+const currentPath = Astro.url.pathname;
+const toEnglishPath = (path: string) => {
+  if (path === "/") return "/en/";
+  if (path === "/curriculo" || path === "/curriculo/") return "/en/resume";
+  if (path.startsWith("/artigos")) return `/en/articles${path.slice("/artigos".length)}`;
+  return `/en${path}`;
+};
+const toPortuguesePath = (path: string) => {
+  const withoutPrefix = path.replace(/^\/en(?=\/|$)/, "") || "/";
+  if (withoutPrefix === "/resume" || withoutPrefix === "/resume/") return "/curriculo";
+  if (withoutPrefix.startsWith("/articles")) return `/artigos${withoutPrefix.slice("/articles".length)}`;
+  return withoutPrefix;
+};
+const portuguesePath = isEnglish ? toPortuguesePath(currentPath) : currentPath;
+const englishPath = isEnglish ? currentPath : toEnglishPath(currentPath);
+const homePath = isEnglish ? "/en/" : "/";
+const isHome = currentPath === "/" || currentPath === "/en" || currentPath === "/en/";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#e3e5e1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="pt-BR" href={new URL(portuguesePath, Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL(englishPath, Astro.site)} />
+    <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" sizes="any" />
+    {!isEnglish && <link rel="alternate" type="application/rss+xml" title="Feed completo" href="/rss.xml" />}
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content={isEnglish ? "en_US" : "pt_BR"} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={isEnglish ? "Mateus Reis Bastos — Information security, SOC, and Blue Team" : "Mateus Reis Bastos — Segurança da informação, SOC e Blue Team"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{pageTitle}</title>
+    <ClientRouter />
+  </head>
+  <body class:list={{ "is-home": isHome, "is-interior": !isHome }}>
+    <a class="skip-link" href="#conteudo">{isEnglish ? "Skip to content" : "Pular para o conteúdo"}</a>
+    {!isHome && <a class="home-control" href={homePath} aria-label={isEnglish ? "Return to the main index" : "Voltar ao índice principal"}>← {isEnglish ? "Home" : "Início"}</a>}
+    {!isHome && <nav class="language-control" aria-label={isEnglish ? "Select language" : "Selecionar idioma"}>
+      <a href={portuguesePath} lang="pt-BR" hreflang="pt-BR" aria-current={isEnglish ? undefined : "page"}>PT</a>
+      <span aria-hidden="true">/</span>
+      <a href={englishPath} lang="en" hreflang="en" aria-current={isEnglish ? "page" : undefined}>EN</a>
+    </nav>}
+
+    <main id="conteudo"><slot /></main>
+</body>
+</html>

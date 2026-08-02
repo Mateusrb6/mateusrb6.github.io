@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+const articles = (await getCollection("articles")).filter((item) => !item.data.draft).sort((a,b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<BaseLayout lang="en" title="Articles" description="Articles and technical notes about information security.">
+  <div class="listing-page shell">
+    <header class="page-heading"><h1>Articles</h1><p>Observations, studies, and essays on defensive and offensive security.</p></header>
+    {articles.length === 0 ? <section class="empty-state" aria-labelledby="articles-empty"><h2 id="articles-empty">No articles published yet.</h2><a href="/en/">Return to the main index</a></section> :
+    <div class="content-list">{articles.map((item) => <a class="content-row" href={`/en/articles/${item.id}/`}><time datetime={item.data.date.toISOString()}>{item.data.date.toLocaleDateString("en-US", { month: "short", year: "numeric" })}</time><div><h2>{item.data.title}</h2><p>{item.data.summary}</p><span>{item.data.tags.join(" · ")}</span></div><b aria-hidden="true">→</b></a>)}</div>}
+  </div>
+</BaseLayout>

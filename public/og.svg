@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#e3e5e1"/>
+  <path d="M80 92h1040" stroke="#c3c7c1" stroke-width="2"/>
+  <text x="80" y="205" fill="#14181c" font-family="'Saira Condensed', 'Arial Narrow', sans-serif" font-size="108" font-weight="700" letter-spacing="2">MATEUS REIS BASTOS</text>
+  <text x="84" y="264" fill="#3d444b" font-family="'Source Sans 3', Arial, sans-serif" font-size="30">Segurança da informação · SOC e Blue Team · Engenharia de Redes — UnB</text>
+  <rect x="80" y="350" width="1040" height="160" fill="#23282e"/>
+  <path d="M80 350h1040" stroke="#1f5fa8" stroke-width="8"/>
+  <g fill="#101418" stroke="#4a525b" stroke-width="3">
+    <rect x="130" y="398" width="72" height="60"/>
+    <rect x="260" y="398" width="72" height="60"/>
+    <rect x="390" y="398" width="72" height="60"/>
+    <rect x="520" y="398" width="72" height="60"/>
+    <rect x="650" y="398" width="72" height="60"/>
+    <rect x="780" y="398" width="72" height="60"/>
+    <rect x="910" y="398" width="72" height="60"/>
+  </g>
+  <g fill="#1f5fa8">
+    <rect x="146" y="414" width="40" height="22"/>
+    <rect x="406" y="414" width="40" height="22"/>
+    <rect x="796" y="414" width="40" height="22"/>
+  </g>
+  <text x="80" y="572" fill="#6a7178" font-family="'IBM Plex Mono', monospace" font-size="22" letter-spacing="2">PORTFÓLIO TÉCNICO · BRASÍLIA, DF</text>
+</svg>
