@@ -352,6 +352,22 @@ body.is-home { background: #e3e5e1; color: #1b2026; }
   letter-spacing: .005em;
   text-transform: uppercase;
 }
+.hub-current-practice {
+  max-width: 39ch;
+  margin: 0;
+  color: #4d545b;
+  font-size: .95rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.hub-current-practice span {
+  display: block;
+  margin-bottom: .35rem;
+  color: #1f5fa8;
+  font: 600 10px/1.4 var(--font-mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
 .hub-panel { padding: 14px clamp(12px, 2vw, 22px) 10px; background: #23282e; border: 1px solid #11151a; border-radius: 3px; box-shadow: inset 0 1px 0 #3c434b, 0 2px 0 #b9bdb7; }
 .hub-ports { display: flex; align-items: flex-start; gap: clamp(3px, .5vw, 7px); }
 .hub-port { min-width: 0; flex: 1 1 0; display: grid; justify-items: center; gap: 5px; padding: 1px; border-radius: 3px; }
@@ -389,6 +405,7 @@ body.is-home { background: #e3e5e1; color: #1b2026; }
     padding: clamp(24px, 9vw, 40px) 0 22px;
   }
   .hub-hero h1 { font-size: clamp(3.25rem, 16vw, 4.5rem); }
+  .hub-current-practice { max-width: 33ch; font-size: .9rem; }
   .hub-panel { padding: 12px 10px 10px; }
   .hub-ports {
     display: grid;

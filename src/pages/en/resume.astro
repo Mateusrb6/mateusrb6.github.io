@@ -25,32 +25,46 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <div>
         <article class="resume-entry">
           <header>
-            <h3>IT Infrastructure Intern</h3>
-            <p>Associação GigaCandanga · Nov 2025 – present · Brasília, Brazil · hybrid</p>
+            <h3>SOC Intern</h3>
+            <p>Associação GigaCandanga · Nov 2025 – Mar 2026 · Brasília, Brazil · hybrid</p>
           </header>
-          <p>Associação GigaCandanga is a Science and Technology Institution responsible for managing Redecomep, the metropolitan education and research network of Brazil's Federal District. The network connects UnB, research institutes, and government agencies through high-speed optical infrastructure.</p>
+          <p>GigaCandanga is a Science and Technology Institution (ICT) responsible for managing Redecomep, the metropolitan education and research network of Brazil's Federal District. It provides high-speed fiber-optic infrastructure connecting UnB, research institutes, and government agencies in the Federal District.</p>
+          <p>I joined the <strong>SOC-as-a-Service</strong> project, based on a multi-tenant architecture, under the guidance of my first supervisor.</p>
           <ul>
-            <li>Contribute to the research and early engineering stage of a SOC project through feasibility studies, technical documentation reviews, and security-tool mapping for the defensive architecture.</li>
-            <li>Run laboratory proofs of concept with Wazuh and Suricata for Linux server security monitoring and event analysis, with production implementation planned for the project's next stages.</li>
-            <li>Studied and validated JumpServer in a test environment as a PAM solution, configuring a Bastion Host for centralized access, session auditing, and secure SSH policies.</li>
-            <li>Assist with Linux system administration and the operation of Zabbix and Grafana for high-capacity network observability.</li>
+            <li>Participated in the project's initial structuring stage through study and review of its technical proposal and documentation.</li>
+            <li>Researched public threat-indicator (IOC) feeds as input for future integration with detection tools.</li>
+            <li>Developed a complete project glossary of approximately 90 terms, covering threats and attack indicators; SOC, monitoring, and defense concepts; networks and protocols; packet and traffic analysis; security tools (SIEM/IDS/IPS/SOAR); multi-tenant architecture; and open-source licensing models — used as reference material for service clients.</li>
           </ul>
+          <p><strong>Technologies:</strong> Wazuh · Threat Intelligence (IOCs)</p>
+          <aside class="accuracy-note" aria-label="Accuracy note"><strong>Accuracy note.</strong> During this period, only Wazuh was used in practice. The technical glossary covers a much broader set of tools — this reflects research and documentation, not hands-on experience with every tool.</aside>
         </article>
-      </div>
-    </section>
 
-    <section class="resume-section">
-      <h2>Academic &amp; community work</h2>
-      <div>
+        <article class="resume-entry">
+          <header>
+            <h3>IT Infrastructure Intern</h3>
+            <p>Associação GigaCandanga · Mar 2026 – present · Brasília, Brazil · hybrid</p>
+          </header>
+          <p>After my original supervisor left, I began working more broadly in IT infrastructure.</p>
+          <ul>
+            <li><strong>SOC architecture and planning:</strong> mapping security tools (SIEM/XDR) to compose the cyber-defense structure.</li>
+            <li>Laboratory proofs of concept (PoCs) for security monitoring and log analysis using Wazuh, Suricata, and Docker Compose — deployment tests on infrastructure with three dedicated servers (Wazuh, Zabbix, and JumpServer), validating endpoint integration and Security Configuration Assessment (SCA) processes.</li>
+            <li>Studied and validated JumpServer as a Privileged Access Management (PAM) solution: Bastion Host configuration, session auditing, and secure SSH policies.</li>
+            <li>Linux system administration and operation of Zabbix and Grafana for high-capacity network monitoring.</li>
+          </ul>
+          <p><strong>Technologies:</strong> Wazuh · Suricata · Docker · Linux · JumpServer · Zabbix · Grafana · TCP/IP · DNS · Firewall · Python</p>
+          <aside class="accuracy-note" aria-label="Accuracy note"><strong>Accuracy note.</strong> Laboratory / proof-of-concept environment; it does not represent a production deployment.</aside>
+        </article>
+
         <article class="resume-entry">
           <header>
             <h3>Management team member and Recon instructor — UnBreakable</h3>
             <p>UnB offensive-security study group · Mar 2026 – present</p>
           </header>
-          <p>I am part of UnBreakable's management team and one of the instructors for Recon, its entry-level cohort. The group is organized by UnB students for competitions, research, and technical practice on platforms such as TryHackMe and Hack The Box.</p>
+          <p>UnBreakable is the University of Brasília's offensive-security study group, created to develop cybersecurity in academia and train competitors for national and international challenges. It holds hands-on sessions on Hack The Box and TryHackMe machines, produces write-ups, participates in CTFs, and organizes technical talks with researchers and security professionals.</p>
           <ul>
-            <li>Helped structure and run the 2026 selection process: two weeks of hands-on classes, elimination challenges, and a mandatory write-up as the final stage; 29 participants were admitted.</li>
-            <li>Led seven weekly Recon activities with TryHackMe machines, each accompanied by a technical write-up.</li>
+            <li>Part of the management team responsible for structuring and running the 2026 selection process (eliminatory hands-on challenges, a mandatory write-up as the final criterion, and 29 approved candidates) and organizing the group's activities.</li>
+            <li>One of the instructors for the entry-level cohort (Recon), leading weekly hands-on sessions on TryHackMe machines, each accompanied by a technical write-up.</li>
+            <li>Help organize technical talks with researchers and security professionals.</li>
           </ul>
         </article>
 
@@ -59,19 +73,44 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             <h3>Member — IEEE ComSoc UnB</h3>
             <p>IEEE Communications Society student chapter · May 2025 – Mar 2026</p>
           </header>
-          <p>Participated in communication-networking projects and events. Volunteered at the IEEE ComSoc Student Leadership Tech Conference for Brazil's Central-Northern region in October 2025, supporting the event's organization and delivery.</p>
+          <p>IEEE ComSoc UnB is the Communications Society student chapter at the University of Brasília, focused on projects and events related to communication networks.</p>
+          <ul>
+            <li>Participated in communication-networking projects and events.</li>
+            <li>Worked on the volunteer team for the IEEE ComSoc Student Leadership Tech Conference Centro-Norte Brasil (Oct. 2025), supporting the event's organization and delivery — talks and workshops on networks, cybersecurity, blockchain, and spectrum regulation.</li>
+          </ul>
+        </article>
+
+        <article class="resume-entry">
+          <header>
+            <h3>Trainee — IEEE ComSoc UnB</h3>
+            <p>IEEE Communications Society student chapter · Mar 2025 – May 2025</p>
+          </header>
+          <p>Final stage of the selection process to become an effective member of the IEEE ComSoc UnB student chapter.</p>
+          <ul>
+            <li>Co-developed, with other trainees, a project proposal to democratize internet access through Mesh networks using low-cost equipment.</li>
+          </ul>
         </article>
       </div>
     </section>
 
     <section class="resume-section">
       <h2>Education</h2>
-      <div class="resume-entry">
-        <header>
-          <h3>Bachelor's Degree in Communication Network Engineering</h3>
-          <p>University of Brasília (UnB) · in progress</p>
-        </header>
-        <p>Multidisciplinary training in Electrical Engineering, Networks, and Computing.</p>
+      <div>
+        <article class="resume-entry">
+          <header>
+            <h3>Bachelor's Degree in Communication Network Engineering</h3>
+            <p>University of Brasília (UnB) · in progress</p>
+          </header>
+          <p>Multidisciplinary training in Electrical Engineering, Networks, and Computing.</p>
+        </article>
+
+        <article class="resume-entry">
+          <header>
+            <h3>Teaching Assistant — Advanced Topics in Computers</h3>
+            <p>University of Brasília · Aug. 2026 – present</p>
+          </header>
+          <p>Support students in developing hands-on skills for offensive-security challenges and CTFs. This is the same course I attended as a student while instructing UnBreakable's Recon cohort — the teaching assistantship is a direct continuation of that period.</p>
+        </article>
       </div>
     </section>
 

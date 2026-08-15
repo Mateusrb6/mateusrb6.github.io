@@ -19,6 +19,7 @@ const labels = pt ? {
   contact: "Contato", contactCopy: "Canais diretos e perfis profissionais.",
   resumePath: "/curriculo", writeupsPath: "/writeups", articlesPath: "/artigos", contactPath: "#contato",
   contactTitle: "Canais diretos", profileTitle: "Plataformas de CTF e Labs", pending: "Perfil em breve",
+  currentPractice: "Prática atual", currentPracticeCopy: "PoCs de monitoramento com Wazuh e Suricata · Monitoria em Tópicos Avançados em Computadores.",
   opensNewTab: "de Mateus Reis Bastos — abre em nova aba",
 } : {
   port: "PORT",
@@ -28,6 +29,7 @@ const labels = pt ? {
   contact: "Contact", contactCopy: "Direct channels and professional profiles.",
   resumePath: "/en/resume", writeupsPath: "/en/writeups", articlesPath: "/en/articles", contactPath: "#contact",
   contactTitle: "Direct channels", profileTitle: "CTF & Lab Platforms", pending: "Profile coming soon",
+  currentPractice: "Current practice", currentPracticeCopy: "Monitoring PoCs with Wazuh and Suricata · Teaching assistant for Advanced Topics in Computers.",
   opensNewTab: "profile of Mateus Reis Bastos — opens in a new tab",
 };
 const profileUrl = (url: string) => /^https?:\/\//.test(url);
@@ -53,6 +55,7 @@ const cards = [
       <div>
         <h1 id="hub-title">Mateus Reis<br />Bastos</h1>
       </div>
+      <p class="hub-current-practice"><span>{labels.currentPractice}</span>{labels.currentPracticeCopy}</p>
     </section>
 
     <section class="hub-panel" aria-label={pt ? "Painel de conexões" : "Connection panel"}>
