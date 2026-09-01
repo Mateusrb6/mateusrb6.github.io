@@ -8,85 +8,47 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <p>Estagiário de Infraestrutura de TI · Blue Team, SOC e cibersegurança · Engenharia de Redes — UnB</p>
       <div class="resume-contact" aria-label="Localização e objetivo profissional">
         <span>Brasília, DF, Brasil</span>
-        <span>Busco estágio em segurança da informação — presencial, híbrido ou remoto</span>
+        <span>Estágio em Segurança da Informação, com foco em segurança defensiva, monitoramento e segurança de redes e infraestrutura</span>
       </div>
     </header>
 
     <section class="resume-section">
       <h2>Perfil</h2>
       <div>
-        <p class="resume-intro">Estudante de Engenharia de Redes de Comunicação na Universidade de Brasília, com foco em segurança da informação e infraestrutura. Desenvolvo experiência prática em monitoramento, controle de acesso e observabilidade, combinando a perspectiva defensiva do SOC com a prática de CTFs e estudos de segurança ofensiva.</p>
-        <p>Atualmente atuo na Associação GigaCandanga e integro a gestão do UnBreakable, grupo de estudos de segurança ofensiva da UnB. Procuro uma oportunidade de estágio em segurança da informação em Brasília ou remota.</p>
+        <p class="resume-intro">Estudante de Engenharia de Redes de Comunicação na Universidade de Brasília, com foco em segurança da informação, defesa cibernética e infraestrutura. Desenvolvo experiência prática em monitoramento de ameaças, controle de acesso e observabilidade, combinando a perspectiva defensiva do SOC com a prática de CTFs e estudos de segurança ofensiva.</p>
+        <p>Atualmente atuo como Estagiário de Infraestrutura de TI na Associação GigaCandanga, monitor da disciplina de Tópicos Avançados em Computadores e integro a gestão do UnBreakable, grupo de estudos de segurança ofensiva da UnB.</p>
       </div>
     </section>
 
     <section class="resume-section">
-      <h2>Experiência</h2>
+      <h2>Experiência profissional</h2>
       <div>
-        <article class="resume-entry">
-          <header>
-            <h3>Estagiário de SOC</h3>
-            <p>Associação GigaCandanga · nov. 2025 – mar. 2026 · Brasília, DF · híbrido</p>
-          </header>
-          <p>A GigaCandanga é uma Instituição de Ciência e Tecnologia (ICT) responsável pela gestão da Redecomep — rede metropolitana de educação e pesquisa do Distrito Federal. Fornece infraestrutura de fibra óptica de alta velocidade interligando a UnB, institutos de pesquisa e órgãos governamentais do DF.</p>
-          <p>Entrei para atuar no projeto <strong>SOC-as-a-Service</strong>, de arquitetura multi-tenant, sob orientação da minha primeira supervisora.</p>
-          <ul>
-            <li>Participação na fase inicial de estruturação do projeto: estudo e revisão de proposta técnica e documentação.</li>
-            <li>Pesquisa de feeds públicos de indicadores de ameaça (IOCs), como insumo para futura integração com ferramentas de detecção.</li>
-            <li>Desenvolvimento de um glossário técnico completo do projeto (~90 termos), cobrindo ameaças e indicadores de ataque, conceitos de SOC, monitoramento e defesa, redes e protocolos, análise de pacotes e tráfego, ferramentas de segurança (SIEM/IDS/IPS/SOAR), arquitetura multi-tenant e modelos de licenciamento open source — usado como material de referência para clientes do serviço.</li>
-          </ul>
-          <p><strong>Tecnologias:</strong> Wazuh · Threat Intelligence (IOCs)</p>
-        </article>
-
         <article class="resume-entry">
           <header>
             <h3>Estagiário de Infraestrutura de TI</h3>
             <p>Associação GigaCandanga · mar. 2026 – atual · Brasília, DF · híbrido</p>
           </header>
-          <p>A partir da saída da minha supervisora original, passei a atuar em infraestrutura de TI de forma mais ampla.</p>
+          <p>A GigaCandanga é uma Instituição de Ciência e Tecnologia (ICT) responsável pela gestão da Redecomep — rede metropolitana de educação e pesquisa do Distrito Federal.</p>
           <ul>
-            <li><strong>Arquitetura e planejamento de SOC:</strong> mapeamento de ferramentas de segurança (SIEM/XDR) para composição da estrutura de defesa cibernética.</li>
-            <li>Provas de conceito (PoC) em ambiente de laboratório para monitoramento de segurança e análise de logs, utilizando Wazuh, Suricata e Docker Compose — testes de implantação em infraestrutura com 3 servidores dedicados (Wazuh, Zabbix e JumpServer), validando integração de endpoints e processos de Security Configuration Assessment (SCA).</li>
-            <li>Estudo e validação do JumpServer como solução de PAM (Privileged Access Management): configuração de Bastion Host, auditoria de sessões e políticas de SSH seguro.</li>
-            <li>Administração de sistemas Linux e operação de Zabbix e Grafana para monitoramento de redes de alta capacidade.</li>
+            <li>Condução de provas de conceito (PoC) em ambiente de laboratório com Wazuh (SIEM), Suricata (IDS/IPS) e OpenVAS (análise de vulnerabilidades) para monitoramento de segurança de servidores Linux, com implementação em produção prevista para as próximas fases do projeto.</li>
+            <li>Configuração e validação do JumpServer (PAM) como Bastion Host em ambiente de testes, centralizando o acesso SSH a servidores Linux, habilitando auditoria de sessões e reduzindo a exposição de credenciais diretas.</li>
+            <li>Administração de sistemas Linux e operação de Zabbix e Grafana para observabilidade de redes de alta capacidade.</li>
           </ul>
-          <p><strong>Tecnologias:</strong> Wazuh · Suricata · Docker · Linux · JumpServer · Zabbix · Grafana · TCP/IP · DNS · Firewall · Python</p>
+          <p><strong>Tecnologias:</strong> Wazuh · Suricata · OpenVAS · Docker · Docker Compose · Linux · JumpServer · Zabbix · Grafana · TCP/IP · DNS · Firewall · Python</p>
         </article>
 
         <article class="resume-entry">
           <header>
-            <h3>Gestor e instrutor da Recon — UnBreakable</h3>
-            <p>Grupo de estudos de segurança ofensiva da UnB · mar. 2026 – atual</p>
+            <h3>Estagiário de SOC</h3>
+            <p>Associação GigaCandanga · nov. 2025 – mar. 2026 · Brasília, DF · híbrido</p>
           </header>
-          <p>O UnBreakable é o grupo de estudos de segurança ofensiva da Universidade de Brasília, criado para desenvolver a área de cibersegurança no meio acadêmico e formar competidores para o cenário nacional e internacional. Realiza sessões práticas em máquinas do Hack The Box e TryHackMe, produção de write-ups, participação em CTFs e palestras técnicas com pesquisadores e profissionais da área.</p>
+          <p>Atuação na fase inicial de estruturação do projeto de <strong>SOC-as-a-Service</strong> (arquitetura multi-tenant).</p>
           <ul>
-            <li>Integro a equipe de gestão, responsável por estruturar, conduzir e organizar as atividades do grupo.</li>
-            <li>Atuo como um dos instrutores da turma de nível iniciante (Recon), conduzindo sessões práticas semanais em máquinas do TryHackMe, cada uma acompanhada da produção de um write-up técnico.</li>
-            <li>Participo da organização de palestras técnicas com pesquisadores e profissionais da área de segurança.</li>
+            <li>Participação na fase inicial de estruturação do projeto: estudo e revisão de proposta técnica e documentação.</li>
+            <li>Pesquisa de feeds públicos de indicadores de ameaça (IOCs) como insumo para futura integração com ferramentas de detecção.</li>
+            <li>Desenvolvimento de glossário técnico do projeto, cobrindo conceitos de ameaças, ferramentas de monitoramento (SIEM/IDS/IPS/SOAR), protocolos de rede e arquitetura multi-tenant.</li>
           </ul>
-        </article>
-
-        <article class="resume-entry">
-          <header>
-            <h3>Membro — IEEE ComSoc UnB</h3>
-            <p>Capítulo estudantil IEEE Communications Society · maio 2025 – mar. 2026</p>
-          </header>
-          <p>O IEEE ComSoc UnB é o capítulo estudantil da Communications Society na Universidade de Brasília, com foco em projetos e eventos voltados a redes de comunicação.</p>
-          <ul>
-            <li>Participação em projetos e eventos voltados a redes de comunicação.</li>
-            <li>Atuação na equipe de voluntários da IEEE ComSoc Student Leadership Tech Conference Centro-Norte Brasil (out. 2025), apoiando a organização e execução do evento — palestras e workshops sobre redes, cibersegurança, blockchain e regulação de espectro.</li>
-          </ul>
-        </article>
-
-        <article class="resume-entry">
-          <header>
-            <h3>Trainee — IEEE ComSoc UnB</h3>
-            <p>Capítulo estudantil IEEE Communications Society · mar. 2025 – maio 2025</p>
-          </header>
-          <p>Fase final do processo seletivo para me tornar membro efetivo do capítulo estudantil IEEE ComSoc UnB.</p>
-          <ul>
-            <li>Desenvolvimento, em conjunto com outros trainees, de uma proposta de projeto de democratização do acesso à internet a partir de redes Mesh, utilizando equipamentos de baixo custo financeiro.</li>
-          </ul>
+          <p><strong>Tecnologias:</strong> Wazuh · Threat Intelligence (IOCs) · Redes e Protocolos</p>
         </article>
       </div>
     </section>
@@ -97,17 +59,41 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <article class="resume-entry">
           <header>
             <h3>Bacharelado em Engenharia de Redes de Comunicação</h3>
-            <p>Universidade de Brasília (UnB) · em andamento</p>
+            <p>Universidade de Brasília (UnB) · mar. 2024 – mar. 2029 (previsão de conclusão)</p>
           </header>
-          <p>Formação multidisciplinar em Engenharia Elétrica, Redes e Computação.</p>
+          <p>Formação multidisciplinar em Engenharia de Redes, Telecomunicações e Computação.</p>
         </article>
 
         <article class="resume-entry">
           <header>
             <h3>Monitor — Tópicos Avançados em Computadores</h3>
-            <p>Universidade de Brasília · ago. 2026 – atual</p>
+            <p>Universidade de Brasília (UnB) · ago. 2026 – atual</p>
           </header>
-          <p>Suporte aos alunos da disciplina no desenvolvimento de habilidades práticas para desafios de segurança ofensiva e CTF. É a mesma disciplina que eu cursava como aluno enquanto instruía a turma Recon do UnBreakable — a monitoria é continuidade direta desse período.</p>
+          <p>Suporte aos alunos da disciplina no desenvolvimento de habilidades práticas para resolução de desafios de segurança ofensiva e competições de CTF (Capture The Flag).</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Atividades de extensão</h2>
+      <div>
+        <article class="resume-entry">
+          <header>
+            <h3>Gestor do UnBreakable</h3>
+            <p>Grupo de estudos de segurança ofensiva da UnB · mar. 2026 – atual</p>
+          </header>
+          <ul>
+            <li>Integrante da equipe de gestão; estruturei e conduzi o processo seletivo 2026, com duas semanas de aulas práticas e desafios eliminatórios, write-up técnico obrigatório como critério final e 29 aprovados.</li>
+            <li>Instrutor da turma Recon: condução semanal de atividades práticas no TryHackMe envolvendo enumeração, exploração, obtenção de acesso e escalonamento de privilégios em Linux e Windows, com produção de 7 write-ups técnicos.</li>
+          </ul>
+        </article>
+
+        <article class="resume-entry">
+          <header>
+            <h3>Membro — IEEE ComSoc UnB</h3>
+            <p>Capítulo estudantil IEEE Communications Society · maio 2025 – mar. 2026</p>
+          </header>
+          <p>Participação em projetos e eventos voltados a redes de comunicação; voluntário na organização da IEEE ComSoc Student Leadership Tech Conference Centro-Norte Brasil (out. 2025).</p>
         </article>
       </div>
     </section>
@@ -119,13 +105,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <caption class="visually-hidden">Cursos e certificações, entidades emissoras e situação atual</caption>
           <thead><tr><th scope="col">Curso ou certificação</th><th scope="col">Emissor</th><th scope="col">Situação</th></tr></thead>
           <tbody>
-            <tr><td data-label="Curso ou certificação">Google Cybersecurity Professional Certificate</td><td data-label="Emissor">Google</td><td data-label="Situação">abr. 2025 · credencial FO6HJLJQ9NYU</td></tr>
-            <tr><td data-label="Curso ou certificação">EF SET English — 70/100 (C1)</td><td data-label="Emissor">EF SET</td><td data-label="Situação">concluído</td></tr>
-            <tr><td data-label="Curso ou certificação">Networking Basics</td><td data-label="Emissor">Cisco NetAcad</td><td data-label="Situação">ago. 2025</td></tr>
-            <tr><td data-label="Curso ou certificação">SOC Level 1 e Junior Penetration Tester</td><td data-label="Emissor">TryHackMe</td><td data-label="Situação">em andamento</td></tr>
-            <tr><td data-label="Curso ou certificação">Python 3</td><td data-label="Emissor">Curso em Vídeo</td><td data-label="Situação">mar. 2024</td></tr>
+            <tr><td data-label="Curso ou certificação">Junior Cybersecurity Analyst</td><td data-label="Emissor">Hack The Box</td><td data-label="Situação">em andamento</td></tr>
+            <tr><td data-label="Curso ou certificação">Google Cybersecurity Professional Certificate</td><td data-label="Emissor">Google / Coursera</td><td data-label="Situação">2025 · credencial FO6HJLJQ9NYU</td></tr>
+            <tr><td data-label="Curso ou certificação">EF SET English — 70/100 (C1 Proficiência Eficaz)</td><td data-label="Emissor">EF SET</td><td data-label="Situação">concluído</td></tr>
+            <tr><td data-label="Curso ou certificação">Networking Basics</td><td data-label="Emissor">Cisco Networking Academy</td><td data-label="Situação">2025</td></tr>
+            <tr><td data-label="Curso ou certificação">Python 3</td><td data-label="Emissor">Curso em Vídeo</td><td data-label="Situação">2024</td></tr>
           </tbody>
         </table>
+      </div>
+    </section>
+
+    <section class="resume-section">
+      <h2>Habilidades técnicas</h2>
+      <div class="skills-grid">
+        <p><strong>Segurança / Detecção:</strong> Wazuh, Suricata, OpenVAS, Linux Hardening, SCA</p>
+        <p><strong>Segurança Ofensiva:</strong> Nmap, Gobuster, OSINT, Shodan, Google Dorks, Privilege Escalation</p>
+        <p><strong>Infraestrutura:</strong> Linux, Docker, Docker Compose, JumpServer</p>
+        <p><strong>Monitoramento:</strong> Zabbix, Grafana</p>
+        <p><strong>Redes:</strong> TCP/IP, DNS, SSH, Firewalls</p>
+        <p><strong>Programação / Automação:</strong> Python</p>
+        <p><strong>Idiomas:</strong> Português (nativo) · Inglês avançado / C1 (EF SET 70/100, Proficiência Eficaz)</p>
       </div>
     </section>
   </div>
